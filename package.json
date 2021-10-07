@@ -19,5 +19,9 @@
   "devDependencies": {
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false
   }
 }
