@@ -13,13 +13,13 @@ const Layout: React.FC<TITLE> = ({ children, title = 'Nextjs' }) => {
         <title>{title}</title>
       </Head>
       <header>
-        <nav className="gb-gray-800 w-screen">
+        <nav className="bg-gray-800 w-screen">
           <div className="flex items-center pl-8 h-14">
             <div className="flex space-x-4">
               <Link href="/">
                 <a
                   data-testid="home-nav"
-                  className="test-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
                 >
                   Home
                 </a>
@@ -27,7 +27,7 @@ const Layout: React.FC<TITLE> = ({ children, title = 'Nextjs' }) => {
               <Link href="/blog-page">
                 <a
                   data-testid="blog-nav"
-                  className="test-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
                 >
                   Blog
                 </a>
@@ -35,7 +35,7 @@ const Layout: React.FC<TITLE> = ({ children, title = 'Nextjs' }) => {
               <Link href="/comment-page">
                 <a
                   data-testid="comment-nav"
-                  className="test-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
                 >
                   Comment
                 </a>
@@ -43,7 +43,7 @@ const Layout: React.FC<TITLE> = ({ children, title = 'Nextjs' }) => {
               <Link href="/context-page">
                 <a
                   data-testid="context-nav"
-                  className="test-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
                 >
                   Context
                 </a>
@@ -51,7 +51,7 @@ const Layout: React.FC<TITLE> = ({ children, title = 'Nextjs' }) => {
               <Link href="/task-page">
                 <a
                   data-testid="task-nav"
-                  className="test-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
+                  className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
                 >
                   Todos
                 </a>
@@ -60,7 +60,7 @@ const Layout: React.FC<TITLE> = ({ children, title = 'Nextjs' }) => {
           </div>
         </nav>
       </header>
-      <main className="flex flex-1 justify-center flex-col w-screen">
+      <main className="flex flex-1 justify-center items-center flex-col w-screen">
         {children}
       </main>
       <footer className="w-full h-12 flex justify-center items-center border-t">
