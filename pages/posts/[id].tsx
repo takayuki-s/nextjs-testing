@@ -37,3 +37,20 @@ const PostDetail: React.FC<POST> = ({ id, title, body }) => {
 }
 
 export default PostDetail
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = await getAllPostIds()
+  return {
+    paths,
+    fallback: false,
+  }
+}
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const post = await getPostData(ctx.params.id as string)
+  return {
+    props: {
+      ...post,
+    },
+  }
+}
