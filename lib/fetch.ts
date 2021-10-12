@@ -35,7 +35,5 @@ export const getPostData = async (id: string) => {
     new URL(`https://jsonplaceholder.typicode.com/posts/${id}`)
   )
   const post = await res.json()
-  return {
-    post,
-  }
+  return post
 }

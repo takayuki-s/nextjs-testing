@@ -16,7 +16,7 @@ const PostDetail: React.FC<POST> = ({ id, title, body }) => {
       <Link href="/blog-page">
         <div className="flex cursor-pointer mt-12">
           <svg
-            className="w-6 h-6"
+            className="w-6 h-6 mr-3"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -25,9 +25,9 @@ const PostDetail: React.FC<POST> = ({ id, title, body }) => {
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth="2"
+              strokeWidth={2}
               d="M11 19l-7-7 7-7m8 14l-7-7 7-7"
-            ></path>
+            />
           </svg>
           <a data-testid="back-blog">Back to blog-page</a>
         </div>
