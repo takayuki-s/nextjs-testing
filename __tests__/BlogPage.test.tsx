@@ -41,7 +41,7 @@ afterAll(() => {
 describe('Blog page', () => {
   it('Should render the list of blogs pre-fetched by getStaticProps', async () => {
     const { page } = await getPage({
-      route: 'blog-page',
+      route: '/blog-page',
     })
     render(page)
     expect(await screen.findByText('blog page')).toBeInTheDocument()
