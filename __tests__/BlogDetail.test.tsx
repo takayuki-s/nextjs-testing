@@ -68,5 +68,7 @@ describe(`Blog detail page`, () => {
     })
     render(page)
     expect(await screen.findByText('dummy title 1')).toBeInTheDocument()
+    expect(await screen.findByText('dummy body 1')).toBeInTheDocument()
+    // screen.debug()
   })
 })
