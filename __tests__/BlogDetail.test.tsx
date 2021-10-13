@@ -68,7 +68,16 @@ describe(`Blog detail page`, () => {
     })
     render(page)
     expect(await screen.findByText('dummy title 1')).toBeInTheDocument()
-    expect(await screen.findByText('dummy body 1')).toBeInTheDocument()
+    expect(screen.getByText('dummy body 1')).toBeInTheDocument()
     // screen.debug()
+  })
+  it('Should render detailed content of ID 2', async () => {
+    // 個別ページ取得
+    const { page } = await getPage({
+      route: '/posts/2',
+    })
+    render(page)
+    expect(await screen.findByText('dummy title 2')).toBeInTheDocument()
+    expect(screen.getByText('dummy body 2')).toBeInTheDocument()
   })
 })
