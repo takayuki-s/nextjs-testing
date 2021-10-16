@@ -14,7 +14,7 @@ const ContextA: React.FC = () => {
         change
       </button>
       <p>Context A</p>
-      <p className="mb-5 text-indigo-600" data-testid="toggle-1">
+      <p className="mb-5 text-indigo-600" data-testid="toggle-a">
         {toggle ? 'true' : 'false'}
       </p>
     </>
