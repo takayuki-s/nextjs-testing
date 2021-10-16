@@ -52,4 +52,21 @@ describe('Comment page with useSWR / Success+Error', () => {
     expect(await screen.findByText('1: test body a')).toBeInTheDocument()
     expect(screen.getByText('2: test body b')).toBeInTheDocument()
   })
+  it('Should render Error text when fetch failed', async () => {
+    server.use(
+      rest.get(
+        'https://jsonplaceholder.typicode.com/comments/?_limit=10',
+        (req, res, ctx) => {
+          return res(ctx.status(400))
+        }
+      )
+    )
+    render(
+      <SWRConfig value={{ dedupingInterval: 0 }}>
+        <CommentPage />
+      </SWRConfig>
+    )
+    expect(await screen.findByText('Error!')).toBeInTheDocument()
+    // screen.debug()
+  })
 })
