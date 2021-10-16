@@ -41,3 +41,15 @@ afterEach(() => {
   cleanup()
 })
 afterAll(() => server.close())
+
+describe('Comment page with useSWR / Success+Error', () => {
+  it('Should render the value fetched by useSWR', async () => {
+    render(
+      <SWRConfig value={{ dedupingInterval: 0 }}>
+        <CommentPage />
+      </SWRConfig>
+    )
+    expect(await screen.findByText('1: test body a')).toBeInTheDocument()
+    expect(screen.getByText('2: test body b')).toBeInTheDocument()
+  })
+})
