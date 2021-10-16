@@ -18,7 +18,11 @@ const CommentPage: React.FC = () => {
 
   return (
     <Layout title="Comment">
-      <p className="text-4xl">comment page</p>
+      <p className="text-4xl m-10">comment page</p>
+      <ul>
+        {comments &&
+          comments.map((comment) => <Comment key={comment.id} {...comment} />)}
+      </ul>
     </Layout>
   )
 }
