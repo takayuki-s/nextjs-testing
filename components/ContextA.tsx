@@ -6,7 +6,7 @@ const ContextA: React.FC = () => {
   return (
     <>
       <button
-        className="bg-gray hover:bg-gray-400 px-3 py-2 mb-5 text-white rounded focus:outline-none"
+        className="bg-gray-500 hover:bg-gray-400 px-3 py-2 mb-5 text-white rounded focus:outline-none"
         onClick={() => {
           setToggle(!toggle)
         }}
