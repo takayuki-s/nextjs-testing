@@ -17,9 +17,24 @@ const axiosFetcher = async () => {
 }
 
 const TaskPage: React.FC<STATICPROPS> = ({ staticTasks }) => {
+  const { data: tasks, error } = useSWR('todosFetch', axiosFetcher, {
+    fallbackData: staticTasks,
+    revalidateOnMount: true,
+  })
+  if (error) return <span>Error!</span>
   return (
     <Layout title="Todos">
-      <p className="text-4xl">todos page</p>
+      <p className="text-4xl mb-10">todos page</p>
+      <ul>
+        {tasks &&
+          tasks.map((task) => (
+            <li key={task.id}>
+              {task.id}
+              {': '}
+              <span>{task.title}</span>
+            </li>
+          ))}
+      </ul>
     </Layout>
   )
 }
