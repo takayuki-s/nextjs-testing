@@ -9,6 +9,13 @@ interface STATICPROPS {
   staticTasks: TASK[]
 }
 
+const axiosFetcher = async () => {
+  const result = await axios.get<TASK[]>(
+    'https://jsonplaceholder.typicode.com/todos/?_limit=10'
+  )
+  return result.data
+}
+
 const TaskPage: React.FC<STATICPROPS> = ({ staticTasks }) => {
   return (
     <Layout title="Todos">
@@ -17,3 +24,10 @@ const TaskPage: React.FC<STATICPROPS> = ({ staticTasks }) => {
   )
 }
 export default TaskPage
+
+export const getStaticProps: GetStaticProps = async () => {
+  const staticTasks = await getAllTasksData()
+  return {
+    props: { staticTasks },
+  }
+}
