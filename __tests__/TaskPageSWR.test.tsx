@@ -21,7 +21,7 @@ const server = setupServer(
             userId: 1,
             id: 1,
             title: 'Static task A',
-            completed: true,
+            completed: false,
           },
           {
             userId: 2,
@@ -34,3 +34,28 @@ const server = setupServer(
     }
   )
 )
+
+beforeAll(() => server.listen())
+afterEach(() => {
+  server.resetHandlers()
+  cleanup()
+})
+afterAll(() => server.close())
+
+describe(`Todos page / useSWR`, () => {
+  let staticProps: TASK[]
+  staticProps = [
+    {
+      userId: 3,
+      id: 3,
+      title: 'Static task C',
+      completed: true,
+    },
+    {
+      userId: 4,
+      id: 4,
+      title: 'Static task D',
+      completed: false,
+    },
+  ]
+})
