@@ -58,4 +58,17 @@ describe(`Todos page / useSWR`, () => {
       completed: false,
     },
   ]
+  it('Should render CSF data after pre-rendered data', async () => {
+    render(
+      <SWRConfig value={{ dedupingInterval: 0 }}>
+        <TaskPage staticTasks={staticProps} />
+      </SWRConfig>
+    )
+    expect(await screen.findByText('Static task C')).toBeInTheDocument()
+    expect(screen.getByText('Static task D')).toBeInTheDocument()
+    screen.debug()
+    expect(await screen.findByText('Static task A')).toBeInTheDocument()
+    expect(screen.getByText('Static task B')).toBeInTheDocument()
+    screen.debug()
+  })
 })
