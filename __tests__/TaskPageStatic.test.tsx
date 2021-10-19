@@ -41,3 +41,15 @@ afterEach(() => {
   cleanup()
 })
 afterAll(() => server.close())
+
+describe(`Todo page / getStaticProps`, () => {
+  it('Should render the list of tasks pre-fetched by getStaticProps', async () => {
+    const { page } = await getPage({
+      route: '/task-page',
+    })
+    render(page)
+    expect(await screen.findByText('todos page')).toBeInTheDocument()
+    expect(screen.getByText('Static task C')).toBeInTheDocument()
+    expect(screen.getByText('Static task D')).toBeInTheDocument()
+  })
+})
